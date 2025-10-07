@@ -29,26 +29,7 @@ def gravaTrabalho():
     trabalho.close()
     
 def criacaoCurriculo():
-    curriculo=open('curriculo.html','w')
-    pessoa=open('pessoa.txt','r')
-    idade=open('data.txt','r')
-    fone=open('fone.txt','r')
     
-    pes = pessoa.readlines()
-    ida = idade.readlines()
-    fon = fone.readlines()
-    z=0
-    for m in pes:
-        texto=title+"curriculo"+title+"\n"
-        texto=head+"\n"
-        texto="Nome"+m+"\n"
-        texto= texto + "Idade"+ida[z]+"\t\t"+"Fone:"+fon[z]
-        z=z+1
-    curriculo.write(texto)
-    
-    pessoa.close()
-    idade.close()
-    fone.close()
 resposta='s'
 gravaInformacao()
 while resposta == 's' or resposta == 'S':
