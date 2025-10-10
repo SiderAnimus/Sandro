@@ -31,19 +31,28 @@ def gravaTrabalho():
     
     trabalho.close()
     
-def criacaoCurriculo():
-    curriculo=open('curriculo.html','a')
-    
-    curriculo.write('<!DOCTYPE html>'+'\n')
-    curriculo.write('<html>'+'\n')
-    curriculo.write('<head>'+'\n')
-    curriculo.write('</head>'+'\n')
-    curriculo.write('<body>'+'\n')
-    curriculo.write('<p>Idade:'+'</p>\n')
-    curriculo.write('</body>'+'\n')
-    curriculo.write('</html>'+'\n')
-    
-    curriculo.close()
+def criacaocurriculo():
+
+with open("pessoa.txt",'r') as pessoas:
+pessoa = pessoas.read()
+
+ with open("curriculo.txt", 'w') as arquivo:
+
+html = [
+"<html>",
+"<body>",
+"<h1>",
+pessoa,
+"</h1>",
+"</body>",
+"</html>",
+
+
+]
+
+for i in html:
+arquivo.write(i)
+
     
 resposta='s'
 resp='s'
