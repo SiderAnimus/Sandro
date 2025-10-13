@@ -1,0 +1,119 @@
+import os
+def gravaInformacao():
+    nome = input('Informe o seu nome: ')
+    idade = input('Digite sua idade: ')
+    telefone = input('Digite seu telefone: ')
+    with open('pessoa.txt', 'w', encoding='utf-8') as pessoa:
+        pessoa.write(nome + '\n')
+    with open('data.txt', 'w', encoding='utf-8') as data:
+        data.write(idade + '\n')
+    with open('fone.txt', 'w', encoding='utf-8') as fone:
+        fone.write(telefone + '\n')
+def gravaHabilidade():
+    resposta = 's'
+    while resposta == 's':
+        habil = input('Quais são suas habilidades? ')
+        with open('habilidade.txt', 'a', encoding='utf-8') as habilidade_file:
+            habilidade_file.write(habil + '\n')
+            
+        resposta = input('Deseja continuar adicionando habilidades (S/N)? ')
+def gravaTrabalho():
+    resposta = 's'
+    while resposta == 's' or resposta == 'S':
+        trab = input('Digite onde já trabalhou: ')
+        with open('trabalho.txt', 'a', encoding='utf-8') as trabalho_file:
+            trabalho_file.write(trab + '\n')
+            
+        resposta = input('Deseja continuar adicionando experiência (S/N)? ')
+def criacaoCurriculo():
+    def ler_linhas(m):
+        with open(m, 'r', encoding='utf-8') as f:
+            return [line.strip() for line in f.readlines() if line.strip()]
+    nomes = ler_linhas('pessoa.txt')
+    idades = ler_linhas('data.txt')
+    telefones = ler_linhas('fone.txt')
+    habilidades = ler_linhas('habilidade.txt')
+    trabalhos = ler_linhas('trabalho.txt')
+    habilidades_html = "".join([f'<li>{h}</li>\n' for h in habilidades]) if habilidades else '<li>Nenhuma habilidade informada.</li>'
+    trabalhos_html = "".join([f'<li>{t}</li>\n' for t in trabalhos]) if trabalhos else '<li>Nenhuma experiência de trabalho informada.</li>'
+    linhaCurriculo = f"""
+<!DOCTYPE html>
+<html lang="pt-BR">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Currículo de {nomes}</title>
+        <style>
+            body {{
+                background-color: #f4f4f9;
+                font-family: 'Verdana', 'Geneva', sans-serif;
+                color: #333;
+                margin: 0;
+                padding: 20px;
+            }}
+            .curriculo-container {{
+                max-width: 800px;
+                margin: 0 auto;
+                background: #fff;
+                padding: 30px;
+                box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+                border-radius: 10px;
+            }}
+            h1 {{
+                color: #007bff;
+                border-bottom: 3px solid #007bff;
+                padding-bottom: 10px;
+                text-align: center;
+                margin-bottom: 20px;
+            }}
+            h2 {{
+                color: #555;
+                margin-top: 25px;
+                border-bottom: 1px solid #ddd;
+                padding-bottom: 5px;
+            }}
+            .info p {{
+                margin: 5px 0;
+                line-height: 1.6;
+            }}
+            ul {{
+                list-style-type: disc;
+                padding-left: 20px;
+            }}
+        </style>
+    </head>
+    <body>
+        <div class="curriculo-container">
+            <h1>{nomes}</h1>
+            
+            <h2>Informações Pessoais</h2>
+            <div class="info">
+                <p><strong>Idade:</strong> {idades}</p>
+                <p><strong>Telefone:</strong> {telefones}</p>
+            </div>
+            
+            <h2>Habilidades</h2>
+            <ul>
+                {habilidades_html}
+            </ul>
+
+            <h2>Experiência Profissional</h2>
+            <ul>
+                {trabalhos_html}
+            </ul>
+
+        </div>
+    </body>
+</html>
+    """
+    curriculoHtml = 'curriculo.html'
+    with open(curriculoHtml, 'w', encoding='utf-8') as curriculo:
+        curriculo.write(linhaCurriculo)
+        print("Você pode abrir este arquivo no seu navegador para visualizar.")
+        
+
+if __name__ == "__main__":
+    gravaInformacao()
+    gravaHabilidade()
+    gravaTrabalho()
+    criacaoCurriculo()
