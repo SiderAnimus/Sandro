@@ -1,0 +1,78 @@
+
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Currículo de m</title>
+    <!-- Tailwind CSS CDN para estilização moderna e responsiva -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap');
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f3f4f6;
+        }
+        .cv-container {
+            /* Sombra para efeito de "documento" */
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+            max-width: 800px;
+        }
+    </style>
+</head>
+<body class="p-4 sm:p-8">
+    <!-- Container principal do Currículo -->
+    <div class="cv-container mx-auto bg-white rounded-xl overflow-hidden md:flex">
+        
+        <!-- Coluna Esquerda (Informações de Contato e Habilidades) - Fundo Escuro -->
+        <div class="p-6 md:p-8 bg-gray-900 text-white w-full md:w-1/3">
+            <div class="mb-8">
+                <h1 class="text-3xl font-bold border-b-2 border-yellow-500 pb-2 mb-4">m</h1>
+                <p class="text-sm">Idade: 23 anos</p>
+            </div>
+
+            <!-- Contato -->
+            <div class="mb-8">
+                <h2 class="text-xl font-semibold mb-3 border-b border-gray-600 pb-1 text-yellow-500">Contato</h2>
+                <div class="text-sm">
+                    <p class="mb-1">Telefone: 34</p>
+                </div>
+            </div>
+
+            <!-- Habilidades -->
+            <div>
+                <h2 class="text-xl font-semibold mb-3 border-b border-gray-600 pb-1 text-yellow-500">Habilidades</h2>
+                <ul class="text-sm space-y-2">
+                    <li class="text-sm py-1 border-b border-gray-100">inf</li><li class="text-sm py-1 border-b border-gray-100">man</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Coluna Direita (Experiência Profissional e Objetivo) - Fundo Claro -->
+        <div class="p-6 md:p-8 w-full md:w-2/3">
+            
+            <!-- Objetivo/Resumo (Placeholder) -->
+            <div class="mb-8 pb-4 border-b border-gray-200">
+                <h2 class="text-xl font-bold mb-3 text-gray-800">Objetivo Profissional</h2>
+                <p class="text-gray-700 text-base">
+                    Busco uma oportunidade desafiadora na área de [Sua Área], onde possa aplicar 
+                    minhas competências e contribuir ativamente para os resultados da equipe.
+                </p>
+            </div>
+
+            <!-- Experiência Profissional -->
+            <h2 class="text-2xl font-bold mb-4 text-gray-800 border-b-4 border-gray-200 pb-2">Experiência Profissional</h2>
+            
+            <ul class="space-y-6">
+                <li class="list-disc ml-5 text-gray-700 mb-4">esto</li><li class="list-disc ml-5 text-gray-700 mb-4">almo</li>
+            </ul>
+
+        </div>
+    </div>
+    
+    <p class="text-center text-xs text-gray-500 mt-4">
+        Currículo gerado via script Python.
+    </p>
+</body>
+</html>
+    

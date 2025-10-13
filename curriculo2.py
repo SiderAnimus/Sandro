@@ -58,3 +58,8 @@ def criacaoCurriculo(m,n):
     
     curriculo.close()
     data.close()
+
+gravaInformacao()
+gravaHabilidade()
+gravaTrabalho()
+criacaoCurriculo()
